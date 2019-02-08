@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
 
   def index
-          # render({json: Sushi.all})
-          render json: Messages.all
-      end
+    @messages = Message.all
+    render json: @messages
+  end
 
 
 
