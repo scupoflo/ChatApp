@@ -8,8 +8,10 @@
 
 rachel = User.create(username: "GingerGeek")
 shinik = User.create(username: "UniqueShinik")
+ash = User.create(username: "AshMash")
 
 convo1 = Conversation.create(user_id1: 1, user_id2: 2)
+convo2 = Conversation.create(user_id1: 3, user_id2: 2)
 
 message1 = Message.create(user_id: 1, convo_id: 1, text: "Hi")
 message2 = Message.create(user_id: 2, convo_id: 1, text: "Hey, what's up?")
@@ -17,3 +19,4 @@ message3 = Message.create(user_id: 1, convo_id: 1, text: "Nothing, you?")
 message4 = Message.create(user_id: 2, convo_id: 1, text: "Not much")
 message5 = Message.create(user_id: 1, convo_id: 1, text: "See you in class")
 message6 = Message.create(user_id: 2, convo_id: 1, text: "Okay, cool")
+message7 = Message.create(user_id: 3, convo_id: 2, text: "HELLLLLOOOO!")
