@@ -16,9 +16,12 @@ class UsersController < ApplicationController
   end
 
   def findUsername
-    byebug
+    @user = User.find_by(username: params[:username])
+    if @user == nil
+      return "hi"
+    else
+      render json: @user
+    end
   end
-
-
 
 end
