@@ -15,5 +15,10 @@ class UsersController < ApplicationController
     render json: {user: @user, conversations: allConvos}
   end
 
+  def findUsername
+    byebug
+  end
+
+
 
 end
