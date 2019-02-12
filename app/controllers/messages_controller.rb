@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
       }
     end
 
-    render json: arrayOfMessageObjs
+
+    render json: arrayOfMessageObjs 
     end
 end
