@@ -2,15 +2,21 @@ class ConversationsController < ApplicationController
 
   def index
     @convos = Conversation.all
-    @users = User.all
+    render json: @convos
+  end
 
-    arrayOfConvoObjs = @convos.map do |convoObj|
-      { convo_id: convoObj.id,
-        user_id1: User.find(convoObj.user_id1),
-        user_id2: User.find(convoObj.user_id2)
-      }
-    end
-      render json: arrayOfConvoObjs
+  def show
+    @convo = Conversation.find(params[:id])
+    allMessages = Message.all.select{|c| c.conversation_id == @convo.id}
+
+     arrayOfMessageObjs = allMessages.map do |messageObj|
+       { message_id: messageObj.id,
+         user_id: User.find(messageObj.user_id),
+         conversation_id: messageObj.conversation_id,
+         text: messageObj.text
+       }
+     end
+     render json: {conversation: @convo, messages: arrayOfMessageObjs}
   end
 
 end
